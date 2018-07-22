@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 import javaposse.jobdsl.dsl.Job
 import breuer.jenkins.utils.JobUtils
 import jenkins.model.Jenkins
@@ -38,20 +40,20 @@ def call(body) {
 							println(vars)
 						}
 					}*/
-					/*script {
+					script {
 						def baseDir = "${WORKSPACE}".split("\\")[ -1 ]
 						echo "BaseDir: ${baseDir}"
 						echo "RelDir: ../${baseDir}@libs/breuer-jenkins-lib/src/breuer/jenkins/utils/DotNetJob.groovy"
 						jobDsl(removedJobAction: 'DELETE', removedViewAction: 'DELETE',
 							targets: "../${baseDir}@libs/breuer-jenkins-lib/src/breuer/jenkins/utils/DotNetJob.groovy", unstableOnDeprecation: true)
 						jobDsl(scriptText: libraryResource('resources/breuer/jenkins/utils/DotNetJob.groovy'))
-					}*/
+					}
 
-			/*stage('Build jobs') {
+			stage('Build jobs') {
 				steps {
 					echo pipelineParams.message
 
 				}
-	}*/
+	}
 }
 }
