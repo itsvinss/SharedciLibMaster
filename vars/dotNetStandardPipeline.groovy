@@ -47,11 +47,11 @@ def call(body) {
 						jobDsl(scriptText: libraryResource('resources/breuer/jenkins/utils/DotNetJob.groovy'))
 					}*/
 
-			stage('Build jobs') {
+			/*stage('Build jobs') {
 				steps {
 					echo pipelineParams.message
 
 				}
-	}
+	}*/
 }
 }
