@@ -1,5 +1,3 @@
-#!/usr/bin/env groovy
-
 import javaposse.jobdsl.dsl.Job
 import breuer.jenkins.utils.JobUtils
 import jenkins.model.Jenkins
@@ -20,11 +18,12 @@ def call(body) {
 			stage('Testing') {
 				steps {
 					script {
-						EnvVars envVars = build.getEnvironment(listener);					
-						def filename = envVars.get('WORKSPACE') 
+						EnvVars envVars = build.getEnvironment(listener);
+						def filename = envVars.get('WORKSPACE')
 						echo "Workspace: ${filename}"
 					}
 			}
+    }
 			/*stage('Scan for new jobs') {
 				steps {
 					echo 'Scanning...'
@@ -46,17 +45,16 @@ def call(body) {
 							targets: "../${baseDir}@libs/breuer-jenkins-lib/src/breuer/jenkins/utils/DotNetJob.groovy", unstableOnDeprecation: true)
 						jobDsl(scriptText: libraryResource('resources/breuer/jenkins/utils/DotNetJob.groovy'))
 					}
-					
+
 				}
 			}
 
 			stage('Build jobs') {
 				steps {
 					echo pipelineParams.message
-					
+
 				}
 			}
 		}
 	}
-}
 }
