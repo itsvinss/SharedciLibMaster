@@ -1,6 +1,5 @@
 #!/usr/bin/env groovy
 
-import javaposse.jobdsl.dsl.Job
 import breuer.jenkins.utils.JobUtils
 import jenkins.model.Jenkins
 import hudson.model.User
@@ -17,22 +16,22 @@ def call(body) {
     pipeline {
 		agent any
 		stages {
-			stage('Testing') {
+			/*stage('Testing') {
 				steps {
 					script {
 						EnvVars envVars = build.getEnvironment(listener);
+
 						def filename = envVars.get('WORKSPACE')
 						echo "Workspace: ${filename}"
 					}
-			}
-    }
-  }
-			/*stage('Scan for new jobs') {
+				}
+			}*/
+			stage('Scan for new jobs') {
 				steps {
 					echo 'Scanning...'
 					echo "${pwd()}"
 					echo "${WORKSPACE}"
-					script {
+					/*script {
 						bat 'set > env.txt'
 						String[] envs = readFile('env.txt').split("\r?\n")
 
@@ -46,14 +45,16 @@ def call(body) {
 						echo "RelDir: ../${baseDir}@libs/breuer-jenkins-lib/src/breuer/jenkins/utils/DotNetJob.groovy"
 						jobDsl(removedJobAction: 'DELETE', removedViewAction: 'DELETE',
 							targets: "../${baseDir}@libs/breuer-jenkins-lib/src/breuer/jenkins/utils/DotNetJob.groovy", unstableOnDeprecation: true)
-						jobDsl(scriptText: libraryResource('resources/breuer/jenkins/utils/DotNetJob.groovy'))
 					}
+				}
+			}
 
 			stage('Build jobs') {
 				steps {
 					echo pipelineParams.message
 
 				}
+			}
+		}
 	}
-}
 }
