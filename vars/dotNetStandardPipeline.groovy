@@ -38,14 +38,14 @@ def call(body) {
 							println(vars)
 						}
 					}*/
-					script {
+					/*script {
 						def baseDir = "${WORKSPACE}".split("\\")[ -1 ]
 						echo "BaseDir: ${baseDir}"
 						echo "RelDir: ../${baseDir}@libs/breuer-jenkins-lib/src/breuer/jenkins/utils/DotNetJob.groovy"
 						jobDsl(removedJobAction: 'DELETE', removedViewAction: 'DELETE',
 							targets: "../${baseDir}@libs/breuer-jenkins-lib/src/breuer/jenkins/utils/DotNetJob.groovy", unstableOnDeprecation: true)
 						jobDsl(scriptText: libraryResource('resources/breuer/jenkins/utils/DotNetJob.groovy'))
-					}
+					}*/
 
 			stage('Build jobs') {
 				steps {
