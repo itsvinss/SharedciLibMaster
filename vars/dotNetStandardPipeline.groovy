@@ -24,6 +24,7 @@ def call(body) {
 					}
 			}
     }
+  }
 			/*stage('Scan for new jobs') {
 				steps {
 					echo 'Scanning...'
@@ -46,15 +47,10 @@ def call(body) {
 						jobDsl(scriptText: libraryResource('resources/breuer/jenkins/utils/DotNetJob.groovy'))
 					}
 
-				}
-			}
-
 			stage('Build jobs') {
 				steps {
 					echo pipelineParams.message
 
 				}
-			}
-		}
 	}
 }
